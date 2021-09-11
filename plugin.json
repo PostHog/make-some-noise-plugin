@@ -2,7 +2,7 @@
   "name": "Make Some Noise \uD83D\uDCE3 \uD83D\uDCE3 \uD83D\uDCE3",
   "description": "Produces a random event every minute",
   "url": "https://github.com/PostHog/make-some-noise-plugin",
-  "main": "./index.ts",
+  "main": "index.ts",
   "posthogVersion": ">= 1.27.0",
   "config": [
     {
