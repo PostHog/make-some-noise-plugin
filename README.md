@@ -1,4 +1,4 @@
-![](https://github.com/PostHog/make-some-noise-plugin/raw/main/image.png)
+<img src='https://github.com/PostHog/make-some-noise-plugin/raw/main/image.png' alt='' style='width:256px' />
 
 # Make Some Noise 📣📣📣
 
