@@ -19,9 +19,9 @@ export async function setupPlugin() {
 async function makeNoise() {
     const randomChoice = rnd(2)
     const userData = faker.helpers.contextualCard()
-    if (randomChoice === 0) {
-        await posthog.capture('user signup', { ...userData, distinct_id: userData.username })
-    } else if (randomChoice === 1) {
+    
+    await posthog.capture('user signup', { ...userData, distinct_id: userData.username })
+    if (randomChoice === 1) {
         const path = urls[rnd(urls.length)]
         await posthog.capture('$pageview', {
             $active_feature_flags: [],
@@ -30,11 +30,11 @@ async function makeNoise() {
             $current_url: `http://localhost:8000${path}`,
             $device_id: 'random-device-id-in-an-uuidish-format',
             $device_type: 'Desktop',
-            $geoip_city_name: 'Sydney',
+            $geoip_city_name: faker.address.city(),
             $geoip_continent_code: 'OC',
             $geoip_continent_name: 'Oceania',
             $geoip_country_code: 'AU',
-            $geoip_country_name: 'Australia',
+            $geoip_country_name: faker.address.country(),
             $geoip_latitude: -33.8591,
             $geoip_longitude: 151.2002,
             $geoip_postal_code: '2000',
