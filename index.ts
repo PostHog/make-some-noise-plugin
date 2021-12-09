@@ -20,10 +20,14 @@ async function makeNoise() {
     const randomChoice = rnd(2)
     const userData = faker.helpers.contextualCard()
     
-    await posthog.capture('user signup', { ...userData, distinct_id: userData.username })
+    await posthog.capture('user signup', { ...userData, distinct_id: userData.username, $groups: {'organization': userData.company.name} })
     if (randomChoice === 1) {
+        // For correlation
+        await posthog.capture('correlated', {...userData, $groups: {'organization': userData.company.name} })
+
         const path = urls[rnd(urls.length)]
         await posthog.capture('$pageview', {
+            $groups: {'organization': userData.company.name},
             $active_feature_flags: [],
             $browser: 'Chrome',
             $browser_version: 92,
