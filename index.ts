@@ -52,7 +52,7 @@ export async function setupPlugin() {
   await makeNoise();
 }
 
-makeNoise = async () => {
+const makeNoise = async () => {
   //Always include signup
   const steps = rnd(eventTypes.length) + 1;
   const product_id = productIDs[rnd(productIDs.length)];
