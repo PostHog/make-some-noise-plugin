@@ -113,10 +113,10 @@ const submitEvent = async (event) => {
     $referrer: `http://amazingstore.com${event.referrer}`,
     $screen_height: 900,
     $screen_width: 1440,
-    $time: (event.timestamp / 1000),
+    $time: event.timestamp / 1000,
     $user_id: event.userData.username,
     distinct_id: event.userData.username,
-    product_id: event.productID? event.productID:  null, 
-    $set: { email: event.userData.email}
+    product_id: event.productID ? event.productID : null,
+    $set: { email: event.userData.email },
   });
 };
