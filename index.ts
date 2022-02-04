@@ -97,7 +97,7 @@ const makeNoise = async () => {
   }
 };
 
-submitEvent = async (event) => {
+const submitEvent = async (event) => {
   const resp = await posthog.capture(event.name, {
     $timestamp: new Date(event.timestamp),
     $browser: "Chrome",
