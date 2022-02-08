@@ -41,7 +41,7 @@ const productIDs = [
 ];
 
 export async function runEveryMinute({ config }) {
-  const count = parseInt(config.amplification) || 1;
+  const count = Math.min(parseInt(config.amplification) || 1, 10000)
   for (let i = 0; i < count; i++) {
     await makeNoise();
   }
