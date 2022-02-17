@@ -92,6 +92,7 @@ const makeNoise = async () => {
         referrer: "/",
         current_url: eventTypes[i].url,
         userData: userData,
+        first_week_trial_ends: new Date(new Date().setDate(new Date().getDate() + 7)).toISOString()
       });
     }
   }
@@ -117,6 +118,7 @@ const submitEvent = async (event) => {
     $user_id: event.userData.username,
     distinct_id: event.userData.username,
     product_id: event.productID ? event.productID : null,
+    first_week_trial_ends: event.first_week_trial_ends ? event.first_week_trial_ends : null,
     $set: { email: event.userData.email },
   });
 };
